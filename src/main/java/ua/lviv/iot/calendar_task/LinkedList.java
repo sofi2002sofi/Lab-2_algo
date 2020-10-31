@@ -31,7 +31,7 @@ public class LinkedList {
             
             System.out.print("[");
             for(int element : currentNode.getValue()) {
-                System.out.print(" " + Integer.toString(element) + " ");
+                System.out.print(" " + element + " ");
             }
             System.out.println("]");
             

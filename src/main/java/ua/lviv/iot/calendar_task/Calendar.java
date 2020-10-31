@@ -9,12 +9,12 @@ public class Calendar {
     
     public static final int START_END_MEETING_COUNT = 2;
     
-    public static int[][] getArrayOfArrays(InputStream is, int count_of_meetings) {
+    public static int[][] getArrayOfArrays(InputStream input, int countOfMeetings) {
         
-        int[][] meeting = new int[count_of_meetings][START_END_MEETING_COUNT];
+        int[][] meeting = new int[countOfMeetings][START_END_MEETING_COUNT];
         Scanner scanner = new Scanner(System.in);
         
-        for (int rowIterator = 0; rowIterator < count_of_meetings; rowIterator++) {
+        for (int rowIterator = 0; rowIterator < countOfMeetings; rowIterator++) {
             for (int columnIterator = 0; columnIterator < START_END_MEETING_COUNT; columnIterator++) {
                 meeting[rowIterator][columnIterator] = scanner.nextInt(); 
             }
@@ -27,7 +27,7 @@ public class Calendar {
         for (int[] line : array) {
             System.out.print("[");
             for(int element : line) {
-                System.out.print(" " + Integer.toString(element) + " ");
+                System.out.print(" " + element + " ");
             }
             System.out.println("]");
         }
@@ -69,12 +69,12 @@ public class Calendar {
         
         System.out.print("Enter count of the meetings: ");
         Scanner scanner = new Scanner(System.in);
-        int count_of_meetings = scanner.nextInt();
+        int countOfMeetings = scanner.nextInt();
         
-        int[][] meetings = getArrayOfArrays(System.in, count_of_meetings);
+        int[][] meetings = getArrayOfArrays(System.in, countOfMeetings);
         printArrayOfArrays(meetings);
                 
-        CalendarSortManager.mergeSortByIncreaseValueOfStartTime(meetings, 0, count_of_meetings - 1);
+        CalendarSortManager.mergeSortByIncreaseValueOfStartTime(meetings, 0, countOfMeetings - 1);
         
         LinkedList linkList = new LinkedList();
         for (int[] node : meetings) {
@@ -82,6 +82,7 @@ public class Calendar {
         }
                 
         combineMeetings(linkList);
+        System.out.println("=====Combined meetings=====");
         linkList.printLinkedList();
     }
 
