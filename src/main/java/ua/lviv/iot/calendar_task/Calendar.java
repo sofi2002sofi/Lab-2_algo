@@ -46,7 +46,6 @@ public class Calendar {
             if ((linkList.lastNode.getValue()[0] <= linkList.lastNode.getNextNode().getValue()[0]) && (linkList.lastNode.getNextNode().getValue()[0] <= linkList.lastNode.getNextNode().getValue()[1]) &&
                     (linkList.lastNode.getNextNode().getValue()[1] <= linkList.lastNode.getValue()[1])) {
                 
-                linkList.lastNode.setValue(new int []{linkList.lastNode.getValue()[0], linkList.lastNode.getValue()[1]});
                 linkList.lastNode.setNextNode(linkList.lastNode.getNextNode().getNextNode());
             
             } else if ((linkList.lastNode.getValue()[0] <= linkList.lastNode.getNextNode().getValue()[0]) && (linkList.lastNode.getNextNode().getValue()[0] <= linkList.lastNode.getValue()[1]) &&
@@ -75,6 +74,7 @@ public class Calendar {
         printArrayOfArrays(meetings);
                 
         CalendarSortManager.mergeSortByIncreaseValueOfStartTime(meetings, 0, countOfMeetings - 1);
+        printArrayOfArrays(meetings);
         
         LinkedList linkList = new LinkedList();
         for (int[] node : meetings) {
